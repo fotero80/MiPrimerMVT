@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from MiPrimerMVTApp.views import probando_template, libros, CargarLibros
+
+from MiPrimerMVTApp.views import probando_template, libros, cargar_libros
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Libros/<nombre>/<cantidadHojas>', libros),
-    path('CargaLibros/<nombre>/<cantidadHojas>', CargarLibros),
-    path('Template/<nombre>',probando_template)
+    path('CargaLibros/<nombre>/<cantidadHojas>', cargar_libros),
+    path('Template/<nombre>', probando_template)
 ]
