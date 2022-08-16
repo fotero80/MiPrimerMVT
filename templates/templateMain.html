@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <title>Main</title>
 </head>
+<script>
+function Validate() {
+  var name = document.forms.Libros.NombreLibro.value;
+  if (name == "" {
+    window.alert("Please enter your name properly.");
+    name.focus();
+    return false;
+  }
+  return true;
+}
+</script>
 <style>
     .div-1 {
         background-color: #F7AE92;
     }
-
     .div-2 {
     	background-color: #D2F792;
     }
-
     .div-3 {
     	background-color: #92F7DA;
     }
@@ -26,19 +35,21 @@
   <br>
   <br>
 <!-- ------------------------------------------------------------------------------------------------- -->
+<!--codigo en comun para todos los divs y scripts-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- ------------------------------------------------------------------------------------------------- -->
 <!-- Linea para separa la carga de datos -->
 <hr />
 <!-- Linea para separa la carga de datos -->
 <!-- ------------------------------------------------------------------------------------------------- -->
 <!-- Zona para cargar los datos del libro -->
 <div class="div-1">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<form id="Libros">
-  <label for="fname">Ingrese el nombre del libro</label><br>
-  <p><input type="text" name="NombreLibro" /></p>
-  <label for="fname">Ingrese la cantidad de hojas</label><br>
-  <p><input type="text" name="CantidadHojasLibro"/></p>
-  <p><input type="submit" value="Cargar Libro" /></p>
+<form id="Libros" name="Libros" onsubmit="return Validate()"  method="post">
+  <br>
+  <p><b>Ingrese el nombre del libro: </b><input type="text" name="NombreLibro" /></p>
+  <p><b>Ingrese la cantidad de hojas: </b><input type="text" name="CantidadHojasLibro"/></p>
+  <p><input type="submit" id="submitLibros" value="Cargar Libro" /></p>
+  <br>
 </form>
 <script>
   $("#Libros").submit(function(event) {
@@ -54,13 +65,12 @@
 <!-- ------------------------------------------------------------------------------------------------- -->
 <!-- Zona para cargar los datos del autor -->
 <div class="div-2">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <form id="Autores">
-  <label for="fname">Ingrese el nombre del autor</label><br>
-  <p><input type="text" name="NombreAutor" /></p>
-  <label for="fname">Ingrese el apellido del libro</label><br>
-  <p><input type="text" name="ApellidoAutor" /></p>
+  <br>
+  <p><b>Ingrese el nombre del autor: </b><input type="text" name="NombreAutor" /></p>
+  <p><b>Ingrese el apellido del autor: </b><input type="text" name="ApellidoAutor" /></p>
   <p><input type="submit" value="Cargar Autor" /></p>
+  <br>
 </form>
 <script>
   $("#Autores").submit(function(event) {
@@ -76,15 +86,13 @@
 <!-- ------------------------------------------------------------------------------------------------- -->
 <!-- Zona para cargar los datos de las editoriales -->
 <div class="div-3">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <form id="Editoriales">
-  <label for="fname">Ingrese el nombre de la editorial</label><br>
-  <p><input type="text" name="NombreEditorial" /></p>
-  <label for="fname">Ingrese la direccion de la editorial</label><br>
-    <p><input type="text" name="DireccionEditorial" /></p>
-  <label for="fname">Ingrese el email de la editorial</label><br>
-    <p><input type="text" name="EmailEditorial" /></p>
+  <br>
+  <p><b>Ingrese el nombre de la editorial: </b><input type="text" name="NombreEditorial" /></p>
+  <p><b>Ingrese la direccion de la editorial: </b><input type="text" name="DireccionEditorial" /></p>
+  <p><b>Ingrese el email de la editorial: </b><input type="text" name="EmailEditorial" /></p>
   <p><input type="submit" value="Cargar Editorial" /></p>
+  <br>
 </form>
 <script>
   $("#Editoriales").submit(function(event) {
@@ -100,11 +108,11 @@
 <!-- ------------------------------------------------------------------------------------------------- -->
 <!-- Zona para cargar los tipos de clasificaciones -->
 <div class="div-4">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <form id="Clasificaciones">
-  <label for="fname">Ingrese el nombre de la clasificacion</label><br>
-  <p><input type="text" name="TipoClasificacion" /></p>
+  <br>
+  <p><b>Ingrese el nombre de la clasificacion: </b><input type="text" name="TipoClasificacion" /></p>
   <p><input type="submit" value="Cargar Clasificacion" /></p>
+  <br>
 </form>
 <script>
   $("#Clasificaciones").submit(function(event) {
