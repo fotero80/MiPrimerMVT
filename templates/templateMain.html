@@ -22,7 +22,9 @@
 </style>
 
 <body>
-Biblioteca personal<br><br>
+<b><u><font SIZE=20> Biblioteca personal.</font></u></b>
+  <br>
+  <br>
 <!-- ------------------------------------------------------------------------------------------------- -->
 <!-- Linea para separa la carga de datos -->
 <hr />
@@ -30,19 +32,16 @@ Biblioteca personal<br><br>
 <!-- ------------------------------------------------------------------------------------------------- -->
 <!-- Zona para cargar los datos del libro -->
 <div class="div-1">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<form>
-    <label for="fname">Ingrese el nombre del libro</label><br>
-  <p><input type="text" name="NombreLibro"/></p>
-    <label for="fname">Ingrese la cantidad de hojas</label><br>
-    <p><input type="text" name="CantidadHojasLibro"/></p>
-  <p><input type="submit" onclick="submitLibro()"/></p>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<form id="Libros">
+  <label for="fname">Ingrese el nombre del libro</label><br>
+  <p><input type="text" name="NombreLibro" /></p>
+  <label for="fname">Ingrese la cantidad de hojas</label><br>
+  <p><input type="text" name="CantidadHojasLibro"/></p>
+  <p><input type="submit" value="Cargar Libro" /></p>
 </form>
 <script>
-    function submitLibro(){
-        window.location.href = "http://127.0.0.1:8000/MiPrimerMVT/CargaLibros/" + $("input[name=NombreLibro]").val() + "/" + $("input[name=CantidadHojasLibro]").val();
-    }
-  $("form").submit(function(event) {
+  $("#Libros").submit(function(event) {
     event.preventDefault();
     window.location.href = "http://127.0.0.1:8000/MiPrimerMVT/CargaLibros/" + $("input[name=NombreLibro]").val() + "/" + $("input[name=CantidadHojasLibro]").val();
   });
@@ -56,13 +55,15 @@ Biblioteca personal<br><br>
 <!-- Zona para cargar los datos del autor -->
 <div class="div-2">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<form>
-  <p><input type="text" name="NombreAutor" value="Nombre del autor"/></p>
-    <p><input type="text" name="ApellidoAutor" value="Apellido del autor"/></p>
+<form id="Autores">
+  <label for="fname">Ingrese el nombre del autor</label><br>
+  <p><input type="text" name="NombreAutor" /></p>
+  <label for="fname">Ingrese el apellido del libro</label><br>
+  <p><input type="text" name="ApellidoAutor" /></p>
   <p><input type="submit" value="Cargar Autor" /></p>
 </form>
 <script>
-  $("form").submit(function(event) {
+  $("#Autores").submit(function(event) {
     event.preventDefault();
     window.location.href = "http://127.0.0.1:8000/MiPrimerMVT/CargaAutores/" + $("input[name=NombreAutor]").val() + "/" + $("input[name=ApellidoAutor]").val();
   });
@@ -76,14 +77,17 @@ Biblioteca personal<br><br>
 <!-- Zona para cargar los datos de las editoriales -->
 <div class="div-3">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<form>
-  <p><input type="text" name="NombreEditorial" value="Nombre de la editorial"/></p>
-    <p><input type="text" name="DireccionEditorial" value="direccion de la editorial"/></p>
-    <p><input type="text" name="EmailEditorial" value="Apellido del autor"/></p>
+<form id="Editoriales">
+  <label for="fname">Ingrese el nombre de la editorial</label><br>
+  <p><input type="text" name="NombreEditorial" /></p>
+  <label for="fname">Ingrese la direccion de la editorial</label><br>
+    <p><input type="text" name="DireccionEditorial" /></p>
+  <label for="fname">Ingrese el email de la editorial</label><br>
+    <p><input type="text" name="EmailEditorial" /></p>
   <p><input type="submit" value="Cargar Editorial" /></p>
 </form>
 <script>
-  $("form").submit(function(event) {
+  $("#Editoriales").submit(function(event) {
     event.preventDefault();
     window.location.href = "http://127.0.0.1:8000/MiPrimerMVT/CargaEditoriales/" + $("input[name=NombreEditorial]").val() + "/" + $("input[name=DireccionEditorial]").val()+ "/" + $("input[name=EmailEditorial]").val();
   });
@@ -97,12 +101,13 @@ Biblioteca personal<br><br>
 <!-- Zona para cargar los tipos de clasificaciones -->
 <div class="div-4">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<form>
-  <p><input type="text" name="TipoClasificacion" value="Clasificacion"/></p>
+<form id="Clasificaciones">
+  <label for="fname">Ingrese el nombre de la clasificacion</label><br>
+  <p><input type="text" name="TipoClasificacion" /></p>
   <p><input type="submit" value="Cargar Clasificacion" /></p>
 </form>
 <script>
-  $("form").submit(function(event) {
+  $("#Clasificaciones").submit(function(event) {
     event.preventDefault();
     window.location.href = "http://127.0.0.1:8000/MiPrimerMVT/CargaClasificaciones/" + $("input[name=TipoClasificacion]").val();
   });
