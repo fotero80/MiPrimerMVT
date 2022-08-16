@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nombre</title>
+</head>
+<body>
+"datos que quiero mostrar en el body del html"
+datos variables: {{dato2 }}
+<br>
+Fecha: {{dato3}}
+<br>
+nombre:{{dato4}}
+<br>
+numeros: {% for numero in lista %}
+    {% if numero > 2 %}
+        <p style="color:red"> el numero es: {{numero}}</p>
+    {% else %}
+        <p style="color:blue"> el numero es: {{numero}}</p>
+    {% endif %}
+{% endfor %}
+
+
+</body>
+</html>
