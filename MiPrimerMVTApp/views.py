@@ -1,50 +1,43 @@
 from datetime import datetime
-
-from django.http import HttpResponse
-from django.template import Template, Context, loader
-
-from MiPrimerMVTApp.models import CargarLibros
-
-
-def libros(request, nombre, cantidadHojas):
-    with open("Template/templateLibros.html", "r") as f:
-        plantilla = Template(f.read())
-        variables = {
-            "NombreLibro": nombre,
-            "CantidadHojas": cantidadHojas
-        }
-    contexto = Context(variables)
-    documento = plantilla.render(contexto)
-    return HttpResponse(documento)
-
+from django.shortcuts import render
+from MiPrimerMVTApp.models import Libros, Autores, Editoriales, Clasificaciones
 
 def cargar_libros(request, nombre, cantidadHojas):
-    lib = CargarLibros(nombre=nombre, cantidadHojas=cantidadHojas)
+    lib = Libros(nombre=nombre, cantidadHojas=cantidadHojas)
     lib.save()
-    plantilla = loader.get_template('templateLibros.html')
     contexto = {
         "NombreLibro": lib.nombre,
-        "CantidadHojas": lib.cantidadHojas
+        "CantidadHojas": lib.cantidadHojas,
+        "Fecha": datetime.now()
     }
-    documento = plantilla.render(contexto)
-    return HttpResponse(documento)
+    return render(request, 'templateLibros.html', contexto)
 
+def cargar_autores(request, nombre, apellido):
+    aut = Autores(nombre=nombre, apellido=apellido)
+    aut.save()
+    contexto = {
+        "NombreAutor": aut.nombre,
+        "ApellidoAutor": aut.apellido,
+        "Fecha": datetime.now()
+    }
+    return render(request, 'templateAutores.html', contexto)
 
-def mi_nombre(request, nombre):
-    text_response = f"El nombre ingresado es {nombre}"
-    return HttpResponse(text_response)
+def cargar_editoriales(request, nombre, direccion, email):
+    edi = Editoriales(nombre=nombre, direccion=direccion, email=email)
+    edi.save()
+    contexto = {
+        "NombreEditorial": edi.nombre,
+        "DireccionEditorial": edi.direccion,
+        "EmailEditorial": edi.email,
+        "Fecha": datetime.now()
+    }
+    return render(request, 'templateEditoriales.html', contexto)
 
-
-def probando_template(request, nombre):
-    with open("Template/template1.html", "r") as f:
-        plantilla = Template(f.read())
-        variables = {
-            "dato1": "hola mundo",
-            "dato2": "Fernando",
-            "dato3": datetime.now(),
-            "dato4": nombre,
-            "lista": [1, 2, 3, 4]
-        }
-    contexto = Context(variables)
-    documento = plantilla.render(contexto)
-    return HttpResponse(documento)
+def cargar_clasificaciones(request, tipo):
+    cla = Clasificaciones(tipo=tipo)
+    cla.save()
+    contexto = {
+        "TipoClasificaciones": cla.tipo,
+        "Fecha": datetime.now()
+    }
+    return render(request, 'templateClasificaciones.html', contexto)

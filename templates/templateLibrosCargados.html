@@ -7,9 +7,11 @@
 <body>
 Esta pagina se utilizaria para la carga de los nombres de los libros que posee el usuario.
 <br><br>
-El nombre del libro que acaba de ingresar es: {{NombreLibro}}<br>
-El cual tienen {{CantidadHojas}} hojas
-
+<ul>
+{% for line in lines %}
+ <li style="color:{% cycle 'black' 'blue' 'green' %}"> {{ line.text }}</li>
+{% endfor %}
+</ul>
 
 </body>
 </html>
