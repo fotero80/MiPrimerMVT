@@ -6,7 +6,6 @@ class Libros(models.Model):
     cantidadHojas = models.IntegerField()
 
 
-
 class Autores(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)

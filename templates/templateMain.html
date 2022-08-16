@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<style>
+    .div-1 {
+        background-color: #F7AE92;
+    }
+
+    .div-2 {
+    	background-color: #D2F792;
+    }
+
+    .div-3 {
+    	background-color: #92F7DA;
+    }
+    .div-4 {
+    	background-color: #CF92F7;
+    }
+</style>
+
+<body>
+Biblioteca personal<br><br>
+<!-- ------------------------------------------------------------------------------------------------- -->
+<!-- Linea para separa la carga de datos -->
+<hr />
+<!-- Linea para separa la carga de datos -->
+<!-- ------------------------------------------------------------------------------------------------- -->
+<!-- Zona para cargar los datos del libro -->
+<div class="div-1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<form>
+    <label for="fname">Ingrese el nombre del libro</label><br>
+  <p><input type="text" name="NombreLibro"/></p>
+    <label for="fname">Ingrese la cantidad de hojas</label><br>
+    <p><input type="text" name="CantidadHojasLibro"/></p>
+  <p><input type="submit" onclick="submitLibro()"/></p>
+</form>
+<script>
+    function submitLibro(){
+        window.location.href = "http://127.0.0.1:8000/MiPrimerMVT/CargaLibros/" + $("input[name=NombreLibro]").val() + "/" + $("input[name=CantidadHojasLibro]").val();
+    }
+  $("form").submit(function(event) {
+    event.preventDefault();
+    window.location.href = "http://127.0.0.1:8000/MiPrimerMVT/CargaLibros/" + $("input[name=NombreLibro]").val() + "/" + $("input[name=CantidadHojasLibro]").val();
+  });
+</script>
+</div>
+<!-- ------------------------------------------------------------------------------------------------- -->
+<!-- Linea para separa la carga de datos -->
+<hr />
+<!-- Linea para separa la carga de datos -->
+<!-- ------------------------------------------------------------------------------------------------- -->
+<!-- Zona para cargar los datos del autor -->
+<div class="div-2">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<form>
+  <p><input type="text" name="NombreAutor" value="Nombre del autor"/></p>
+    <p><input type="text" name="ApellidoAutor" value="Apellido del autor"/></p>
+  <p><input type="submit" value="Cargar Autor" /></p>
+</form>
+<script>
+  $("form").submit(function(event) {
+    event.preventDefault();
+    window.location.href = "http://127.0.0.1:8000/MiPrimerMVT/CargaAutores/" + $("input[name=NombreAutor]").val() + "/" + $("input[name=ApellidoAutor]").val();
+  });
+</script>
+</div>
+<!-- ------------------------------------------------------------------------------------------------- -->
+<!-- Linea para separa la carga de datos -->
+<hr />
+<!-- Linea para separa la carga de datos -->
+<!-- ------------------------------------------------------------------------------------------------- -->
+<!-- Zona para cargar los datos de las editoriales -->
+<div class="div-3">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<form>
+  <p><input type="text" name="NombreEditorial" value="Nombre de la editorial"/></p>
+    <p><input type="text" name="DireccionEditorial" value="direccion de la editorial"/></p>
+    <p><input type="text" name="EmailEditorial" value="Apellido del autor"/></p>
+  <p><input type="submit" value="Cargar Editorial" /></p>
+</form>
+<script>
+  $("form").submit(function(event) {
+    event.preventDefault();
+    window.location.href = "http://127.0.0.1:8000/MiPrimerMVT/CargaEditoriales/" + $("input[name=NombreEditorial]").val() + "/" + $("input[name=DireccionEditorial]").val()+ "/" + $("input[name=EmailEditorial]").val();
+  });
+</script>
+</div>
+<!-- ------------------------------------------------------------------------------------------------- -->
+<!-- Linea para separa la carga de datos -->
+<hr />
+<!-- Linea para separa la carga de datos -->
+<!-- ------------------------------------------------------------------------------------------------- -->
+<!-- Zona para cargar los tipos de clasificaciones -->
+<div class="div-4">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<form>
+  <p><input type="text" name="TipoClasificacion" value="Clasificacion"/></p>
+  <p><input type="submit" value="Cargar Clasificacion" /></p>
+</form>
+<script>
+  $("form").submit(function(event) {
+    event.preventDefault();
+    window.location.href = "http://127.0.0.1:8000/MiPrimerMVT/CargaClasificaciones/" + $("input[name=TipoClasificacion]").val();
+  });
+</script>
+</div>
+
+</body>
+</html>

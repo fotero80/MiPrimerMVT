@@ -1,4 +1,5 @@
 from datetime import datetime
+
 from django.shortcuts import render
 from MiPrimerMVTApp.models import Libros, Autores, Editoriales, Clasificaciones
 
@@ -41,3 +42,6 @@ def cargar_clasificaciones(request, tipo):
         "Fecha": datetime.now()
     }
     return render(request, 'templateClasificaciones.html', contexto)
+
+def Main(request):
+    return render(request, 'templateMain.html')
